@@ -9,7 +9,11 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    steps:
+    steps:      
+      - 
+        name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +%s)"
       -
         name: Checkout
         uses: actions/checkout@v4
@@ -32,4 +36,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: pvsfair/home-dashboard:latest,pvsfair/home-dashboard:$(date +%s)
+          tags: pvsfair/home-dashboard:latest,pvsfair/home-dashboard:${{ steps.date.outputs.date }}
