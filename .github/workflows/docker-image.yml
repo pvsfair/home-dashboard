@@ -32,6 +32,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: |
-            pvsfair/home-dashboard:latest
-            pvsfair/home-dashboard:$(date +%s)
+          tags: pvsfair/home-dashboard:latest,pvsfair/home-dashboard:$(date +%s)
